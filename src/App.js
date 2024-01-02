@@ -9,6 +9,7 @@ import {
 import { ContextHolder, FronteggContext } from "@frontegg/rest-api";
 import { Switch, useHistory, Route } from "react-router-dom";
 
+
 function Private() {
   const { isAuthenticated } = useAuth();
   const loginWithRedirect = useLoginWithRedirect();
