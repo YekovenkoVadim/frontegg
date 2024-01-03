@@ -1,1 +1,1 @@
-# frontegg
+# my solution of Frontegg automation engineer assignment
