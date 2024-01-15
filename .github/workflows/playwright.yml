@@ -19,8 +19,8 @@ jobs:
       - name: Run tests
         run: |
           echo "Start the app"
-          yarn start &
+          yarn react-scripts start &
           echo "Install dependencies from lockfile"
           npm ci
           echo "Run playwright tests"
-          npm run pw-e2e-ci
+          npx playwright test --grep @e2e --config ./playwright.config.ts
