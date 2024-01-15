@@ -20,12 +20,6 @@ jobs:
       - name: Run tests
         run: |
           echo "Install dependencies from lockfile"
-          npm ci &
-          echo "Build the app"
-          yarn build &
-          echo "Deploy the app"
-          uses: JamesIves/github-pages-deploy-action@4
-          with:
-            folder: src &
+          npm ci
           echo "Run playwright tests"
           npm run BASEURL=${{ secrets.BASEURL }} USERNAME=${{ secrets.USERNAME }} PASSWORD=${{ secrets.PASSWORD }} npx playwright test --grep @e2e --config ./playwright.config.ts
