@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/frontegg/static/css/main.1a7488ce.css",
+    "main.js": "/frontegg/static/js/main.0ee2a86f.js",
+    "index.html": "/frontegg/index.html",
+    "main.1a7488ce.css.map": "/frontegg/static/css/main.1a7488ce.css.map",
+    "main.0ee2a86f.js.map": "/frontegg/static/js/main.0ee2a86f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a7488ce.css",
+    "static/js/main.0ee2a86f.js"
+  ]
+}
