@@ -19,7 +19,7 @@ jobs:
       - name: Run tests
         run: |
           echo "Start the app"
-          npm run start &
+          yarn start &
           echo "Install dependencies from lockfile"
           npm ci
           echo "Run playwright tests"
