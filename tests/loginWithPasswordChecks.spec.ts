@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test'
 import { LoginPage } from '../page-objects/LoginPage.js'
 
+test.describe.configure({ mode: 'parallel'})  // mode: 'serial'
+
 test('@e2e Check logging with password using Frontegg - valid credentials', async({ page }) => {
 
   const loginPage = new LoginPage(page)
@@ -15,6 +17,8 @@ test('@e2e Check logging with password using Frontegg - valid credentials', asyn
   await expect(page).toHaveTitle(/React App/)
   // check the url correctness
   await page.waitForURL('/')
+  // check that app page is loaded successfully
+  await page.waitForLoadState('domcontentloaded')
 })
 
 test('@e2e Check logging with password using Frontegg - invalid password', async({ page }) => {

@@ -14,8 +14,8 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "playwright": "^1.40.1",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
@@ -25,9 +25,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test-pw": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! playwright test --headed",
-    "test-ui-mode": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! playwright test --ui",
-    "e2eTests": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed"
+    "pw-test-run": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --headed",
+    "pw-test-ui-mode": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! playwright test --ui",
+    "pw-e2e": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed",
+    "pw-e2e-ci": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts",
+    "pw-e2e-parallel": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 4",
+    "pw-e2e-parallel-ci": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --workers 4",
+    "allure-generate": "allure generate ./allure-results -o allure-report --clean && allure open ./allure-report",
+    "pw-test-allure-run": "ALLURE_RESULTS_DIR=allure-results USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 4 --reporter=line,allure-playwright && yarn allure-generate"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +54,9 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.40.1",
-    "@types/node": "^20.10.6"
+    "@types/node": "^20.10.6",
+    "allure-commandline": "^2.25.0",
+    "allure-playwright": "^2.10.0",
+    "typescript": "^4.9.5"
   }
 }
