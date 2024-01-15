@@ -22,4 +22,4 @@ jobs:
           echo "Install dependencies from lockfile"
           npm ci
           echo "Run playwright tests"
-          npm run BASEURL=${{ secrets.BASEURL }} USERNAME=${{ secrets.USERNAME }} PASSWORD=${{ secrets.PASSWORD }} npx playwright test --grep @e2e --config ./playwright.config.ts
+          yarn USERNAME=${{ secrets.USERNAME }} PASSWORD=${{ secrets.PASSWORD }} BASEURL=${{ secrets.BASEURL }} npx playwright test --config ./playwright.config.ts
