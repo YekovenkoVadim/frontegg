@@ -35,7 +35,7 @@
     "pw-e2e-parallel": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 4",
     "pw-e2e-parallel-ci": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --workers 4",
     "allure-generate": "allure generate ./allure-results -o allure-report --clean && allure open ./allure-report",
-    "pw-test-allure-run": "ALLURE_RESULTS_DIR=allure-results USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 4 --reporter=line,allure-playwright && yarn allure-generate"
+    "pw-test-allure-run": "ALLURE_RESULTS_DIR=allure-results USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 3 --reporter=line,allure-playwright && yarn allure-generate"
   },
   "eslintConfig": {
     "extends": [
