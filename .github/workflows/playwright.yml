@@ -12,6 +12,7 @@ jobs:
         BASEURL: ${{ secrets.BASEURL }}
         USERNAME: ${{ secrets.USERNAME }}
         PASSWORD: ${{ secrets.PASSWORD }}
+        # BASEURL: https://app-cmo8zo3vh6q4.frontegg.com/oauth/account/login
         # USERNAME: vadim.yekovenko@gmail.com 
         # PASSWORD: PASSWORD=Qwerty1!
     steps:
@@ -22,4 +23,4 @@ jobs:
           echo "Install dependencies from lockfile"
           npm ci
           echo "Run playwright tests"
-          yarn USERNAME=${{ secrets.USERNAME }} PASSWORD=${{ secrets.PASSWORD }} BASEURL=${{ secrets.BASEURL }} npx playwright test --config ./playwright.config.ts
+          npx playwright test --config ./playwright.config.ts
