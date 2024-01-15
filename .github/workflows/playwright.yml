@@ -9,7 +9,7 @@ jobs:
     container: 
       image: mcr.microsoft.com/playwright:v1.40.1-focal
       env:
-        # BASEURL: http://192.168.50.99:3000
+        BASEURL: ${{ secrets.BASEURL }}
         USERNAME: ${{ secrets.USERNAME }}
         PASSWORD: ${{ secrets.PASSWORD }}
         # USERNAME: vadim.yekovenko@gmail.com 
@@ -19,11 +19,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Run tests
         run: |
-          echo "Build the app"
-          yarn react-scripts build &
-          echo "Start the app"
-          yarn react-scripts start &
           echo "Install dependencies from lockfile"
-          npm ci
+          npm ci &
+          echo "Build the app"
+          yarn build &
+          echo "Deploy the app"
+          uses: JamesIves/github-pages-deploy-action@4
+          with:
+            folder: src &
           echo "Run playwright tests"
-          npm run BASEURL=http://192.168.50.99:3000 USERNAME=${{ secrets.USERNAME }} PASSWORD=${{ secrets.PASSWORD }} npx playwright test --grep @e2e --config ./playwright.config.ts
+          npm run BASEURL=${{ secrets.BASEURL }} USERNAME=${{ secrets.USERNAME }} PASSWORD=${{ secrets.PASSWORD }} npx playwright test --grep @e2e --config ./playwright.config.ts
