@@ -23,4 +23,4 @@ jobs:
           echo "Install dependencies from lockfile"
           npm ci
           echo "Run playwright tests"
-          npx playwright test --grep @e2e --config ./playwright.config.ts --workers 3 --reporter=line,allure-playwright && yarn allure-generate
+          npx playwright test --grep @e2e --config ./playwright.config.ts --workers 3 --reporter=line,allure-playwright && yarn allure generate ./allure-results -o allure-report --clean && allure open ./allure-report
