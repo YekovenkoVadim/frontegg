@@ -20,15 +20,16 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  // reporter: "allure-playwright", //'html',
-  reporter: [
-    ['line'], 
-    ['allure-playwright']
-  ],
+  reporter: 'html',
+  // reporter: 'allure-playwright',
+  // reporter: [
+  //   ['line'], 
+  //   ['allure-playwright']
+  // ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
+    // baseURL: 'http://127.0.0.1:3000/',
     baseURL: 'http://localhost:3000/',
     // baseURL: 'https://app-cmo8zo3vh6q4.frontegg.com/oauth/account/login',
 
@@ -77,6 +78,7 @@ export default defineConfig({
   webServer: {
     command: 'yarn start',
     url: 'http://localhost:3000/', 
+    // url: 'http://127.0.0.1:3000/',
     // https://app-cmo8zo3vh6q4.frontegg.com/oauth/account/login
     // reuseExistingServer: !process.env.CI,
   },

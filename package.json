@@ -22,8 +22,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "docker-build": "docker build -t my-react-app .",
+    "docker-run": "docker run --rm -p 3000:3000 -v $(pwd):/app my-react-app",
+    "build-docker-test": "docker build -t playwright-tests .",
+    "run-docker-test": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! docker run playwright-tests",
     "start": "react-scripts start",
-    "predeploy": "yarn build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -32,10 +36,10 @@
     "pw-test-ui-mode": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! playwright test --ui",
     "pw-e2e": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed",
     "pw-e2e-ci": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts",
-    "pw-e2e-parallel": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 4",
-    "pw-e2e-parallel-ci": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --workers 4",
-    "allure-generate": "allure generate ./allure-results -o allure-report --clean && allure open ./allure-report",
-    "pw-test-allure-run": "ALLURE_RESULTS_DIR=allure-results USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 3 --reporter=line,allure-playwright && yarn allure-generate"
+    "pw-e2e-parallel": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 3",
+    "pw-e2e-parallel-ci": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --workers 3",
+    "pw-test-allure-run": "ALLURE_RESULTS_DIR=allure-results USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 3 --reporter=line,allure-playwright",
+    "allure-generate": "allure generate ./allure-results -o allure-report --clean && allure open ./allure-report"
   },
   "eslintConfig": {
     "extends": [
