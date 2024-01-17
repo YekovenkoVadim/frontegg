@@ -66,24 +66,31 @@ function Home() {
   }
 
   return (
-    <div className="App">
+    <div style={{ 
+      backgroundImage: `url("https://images.pexels.com/photos/268415/pexels-photo-268415.jpeg?auto=compress&cs=tinysrgb&w=600")` 
+    }} className="App">
       {isAuthenticated ? (
         <div>
-          <div>
-            <span>Logged in as: {user?.name}</span>
+          <div align="right">
+            <span>You are logged in as: {user?.name}</span>
           </div>
+          <h1 align="left">That's my React app!</h1>
           <div>
+            <h2>Click the button below to check my access token</h2>
             <button onClick={() => alert(user.accessToken)}>What is my access token?</button>
           </div>
           <div>
+            <h2>Click the button below to get Admin portal page</h2>
             <button onClick={() => AdminPortal.show()}>Open admin portal</button>
           </div>
           <div>
+            <h2>Click the button below to logout</h2>
             <button onClick={() => logout()}>Click to logout</button>
           </div>
         </div>
       ) : (
         <div>
+          <h2>Click the button below to login</h2>
           <button onClick={() => loginWithRedirect()}>Click me to login</button>
           <button onClick={() => history.push('/private')}>Go to private route</button>
         </div>
