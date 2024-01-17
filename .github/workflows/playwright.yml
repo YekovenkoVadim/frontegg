@@ -33,6 +33,9 @@ jobs:
             name: test-result-report
             path: reports/report.html
 
+          echo "Open test results"
+          yarn playwright show-report
+
           # echo "Generate allure report"
           # - uses: actions/upload-artifact@master
           # with:

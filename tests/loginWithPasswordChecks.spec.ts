@@ -12,7 +12,7 @@ test('@e2e Check logging with password using Frontegg - valid credentials', asyn
   await loginPage.signInWithPassword(process.env.USERNAME, process.env.PASSWORD)
   // check status code 200 for auth endpoint
   const response = await page.waitForResponse((response) => response.url().includes("/v1/me/authorization"));
-  expect(response.status()).toBe(201)
+  expect(response.status()).toBe(200)
   // check the title correctness
   await expect(page).toHaveTitle(/React App/)
   // check the url correctness
