@@ -26,12 +26,12 @@ jobs:
           npm run e2e-ci
           # npx playwright test --grep @e2e --config ./playwright.config.ts --workers 3
 
-          echo "Generate allure report"
-          - uses: actions/upload-artifact@master
-          with:
-            name: allure-results
-            path: allure-results
-            retention-days: 10
+          # echo "Generate allure report"
+          # - uses: actions/upload-artifact@master
+          # with:
+          #   name: allure-results
+          #   path: allure-results
+          #   retention-days: 10
           
           # echo "Get Allure history"
           # - uses: actions/checkout@v2
