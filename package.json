@@ -39,7 +39,7 @@
     "e2e-parallel": "VIDEO=1 USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 3 && playwright show-report",
     "pw-test-allure-run": "ALLURE_RESULTS_DIR=allure-results USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 3 --reporter=line,allure-playwright",
     "allure-generate": "allure generate ./allure-results -o allure-report --clean && allure open ./allure-report",
-    "e2e-ci": "VIDEO=1 npx playwright test --grep @e2e --config ./playwright.config.ts || :",
+    "e2e-ci": "npx playwright test --grep @e2e --config ./playwright.config.ts",
     "e2e-parallel-ci": "VIDEO=1 npx playwright test --grep @e2e --config ./playwright.config.ts --workers 3 || :",
     "allure:generate": "npx allure generate ./allure-results --clean",
     "allure:open": "npx allure open ./allure-report",
