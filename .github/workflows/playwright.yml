@@ -26,8 +26,8 @@ jobs:
           echo "Install dependencies from lockfile"
           npm ci
           echo "Run playwright tests"
-          # npm run e2e-ci
-          npx playwright test --grep @e2e --config ./playwright.config.ts --workers 3
+          npm run e2e-ci
+          # npx playwright test --grep @e2e --config ./playwright.config.ts --workers 3
 
           # echo "Upload test results"
           # if: always()
