@@ -18,13 +18,16 @@ jobs:
         # BASEURL: https://app-cmo8zo3vh6q4.frontegg.com/oauth/account/login
         # USERNAME: vadim.yekovenko@gmail.com 
         # PASSWORD: PASSWORD=Qwerty1!
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Run tests
         run: |
+
           echo "Install dependencies from lockfile"
           npm ci
+          
           echo "Run playwright tests"
           npm run e2e-ci
           # npx playwright test --grep @e2e --config ./playwright.config.ts --workers 3
