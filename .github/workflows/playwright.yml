@@ -26,6 +26,13 @@ jobs:
           npm run e2e-ci
           # npx playwright test --grep @e2e --config ./playwright.config.ts --workers 3
 
+          echo "Upload test results"
+          if: always()
+          uses: actions/upload-artifact@v3
+          with:
+            name: test-result-report
+            path: reports/report.html
+
           # echo "Generate allure report"
           # - uses: actions/upload-artifact@master
           # with:
