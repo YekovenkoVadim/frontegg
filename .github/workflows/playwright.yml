@@ -1,7 +1,10 @@
 name: Playwright Tests
 on:
+  # pull_request:
   push:
-    branches: [ master ]
+    branches: ['main', 'master']
+  workflow_dispatch:
+    
 jobs:
   playwrighttests:
     timeout-minutes: 60
@@ -33,8 +36,8 @@ jobs:
             name: test-result-report
             path: reports/report.html
 
-          echo "Open test results"
-          yarn playwright show-report
+          # echo "Open test results"
+          # yarn playwright show-report
 
           # echo "Generate allure report"
           # - uses: actions/upload-artifact@master
