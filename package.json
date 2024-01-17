@@ -44,7 +44,7 @@
     "allure:generate": "npx allure generate ./allure-results --clean",
     "allure:open": "npx allure open ./allure-report",
     "posttest": "npm run allure:generate"
-  },
+   },
   "eslintConfig": {
     "extends": [
       "react-app",
