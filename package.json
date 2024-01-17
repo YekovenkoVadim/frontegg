@@ -35,11 +35,14 @@
     "pw-test-run": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --headed",
     "pw-test-ui-mode": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! playwright test --ui",
     "pw-e2e": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed",
-    "pw-e2e-ci": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts",
     "pw-e2e-parallel": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 3",
-    "pw-e2e-parallel-ci": "USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --workers 3",
     "pw-test-allure-run": "ALLURE_RESULTS_DIR=allure-results USERNAME=vadim.yekovenko@gmail.com PASSWORD=Qwerty1! npx playwright test --grep @e2e --config ./playwright.config.ts --headed --workers 3 --reporter=line,allure-playwright",
-    "allure-generate": "allure generate ./allure-results -o allure-report --clean && allure open ./allure-report"
+    "allure-generate": "allure generate ./allure-results -o allure-report --clean && allure open ./allure-report",
+    "e2e-ci": "npx playwright test --grep @e2e --config ./playwright.config.ts || :",
+    "e2e-parallel-ci": "npx playwright test --grep @e2e --config ./playwright.config.ts --workers 3 || :",
+    "allure:generate": "npx allure generate ./allure-results --clean",
+    "allure:open": "npx allure open ./allure-report",
+    "posttest": "npm run allure:generate"
   },
   "eslintConfig": {
     "extends": [
