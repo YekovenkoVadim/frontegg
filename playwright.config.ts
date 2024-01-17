@@ -27,8 +27,12 @@ export default defineConfig({
   //   ['allure-playwright']
   // ],
   reporter: [
-    ['html'],
-    ['@estruyf/github-actions-reporter']
+    ['list'],
+    ['@estruyf/github-actions-reporter', {
+      title: 'Detailed test results:',
+      useDetails: true,
+      showError: true
+    }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
