@@ -9,6 +9,7 @@ const contextOptions = {
     baseUrl: 'https://app-cmo8zo3vh6q4.frontegg.com',
     clientId: '7e5767c2-5395-4654-a800-9a0fda070141',
     redirectUrl: 'http://localhost:3000/oauth/callback'
+    // redirectUrl: 'https://yekovenkovadim.github.io/frontegg/oauth/callback'
 };
 
 const authOptions = {

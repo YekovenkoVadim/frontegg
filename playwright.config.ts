@@ -1,5 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -21,20 +20,28 @@ export default defineConfig({
   workers: process.env.CI ? 3 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    // ['line'],
-    ['html'],
-    // ['@estruyf/github-actions-reporter', {
-    //   title: 'Detailed test results:',
-    //   useDetails: true,
-    //   showError: true
-    // }],
-    // ['allure-playwright']
+    ['line'],
+    // ['html'],
+    ['@estruyf/github-actions-reporter', {
+      title: 'Detailed test results:',
+      useDetails: true,
+      showError: true
+    }],
+    // [
+    //   "allure-playwright",
+    //   {
+    //     detail: true,
+    //     outputFolder: "my-allure-results",
+    //     suiteTitle: false,
+    //   },
+    // ],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000/',
     baseURL: 'http://localhost:3000/',
+    // oauth/account/login
     // baseURL: 'https://app-cmo8zo3vh6q4.frontegg.com/oauth/account/login',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
